@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sprint 1 Alura - Encriptador</title>
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="Style.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;600;800;900&display=swap" rel="stylesheet">
+    <style>
+        .material-icons.md-rem { font-size: 1em; font-weight: bold; }
+    </style>
+    
+
+</head>
+    <body>
+        <header>
+            <img id="logo" src="logo.png" alt="Logo Alura">
+        </header>
+        <main>
+            <section id="fst-section">
+                <textarea id="my-text" rows="10" cols="25" placeholder="inserte el texto aqui"></textarea>
+                <div id="message">
+                    <p><i class="material-icons md-rem">error_outline</i> solo letras minusculas y sin acentos</p>
+                </div>
+                <div class="buttons">
+                    <button id="btn-encriptar" onclick="btnEncriptar()">Encriptar</button>
+                    <button id="btn-desencriptar" onclick="btndesencriptar()">Desencriptar</button>
+                </div>
+            </section>
+            <section id="scd-section">
+                <textarea id="mensaje" rows="10" cols="25" readonly ></textarea>
+                <div class="buttons">
+                    <button id="btn-copy" onclick="copiar()">Copiar</button>
+                </div>
+            </section>
+            
+
+        </main>
+
+        <footer>
+            <span id="cright" class="material-icons">
+                copyright
+            </span>
+            Proyecto creado por Daniel García Taddia <br>
+            Enero 2023
+        </footer>
+        <script src="script.js"></script>
+
+    </body>
+</html>

@@ -1,0 +1,135 @@
+* {
+    font-family: 'Inter', sans-serif;
+    font-size: 1.2rem;
+    font-weight: 200;
+    line-height: 2em;
+    letter-spacing: 0em;
+    text-align: left;
+    background-color: #E5E5E5;
+    box-sizing: border-box;
+ 
+}
+
+html, body {
+    height: 100vh;
+    overflow: auto;
+}
+
+header {
+    height: 8vh;
+}
+
+#logo {
+    margin: 1em ;
+    height: 5vh;
+}
+
+main {
+    display: flex;
+    justify-content: space-evenly;
+    width: 100vw;
+    min-height: 82vh;
+}
+
+section {
+    margin: 2em;
+    overflow: auto;
+    width: auto;
+    min-height: 70vh;
+}
+
+textarea {
+    border: none;
+    min-height: 70%;
+    font-weight: 600;
+    color: #060661;
+}
+
+textarea:focus {
+    outline: none;
+}
+
+::placeholder {
+    color: #060661;
+    font-weight: 600;
+}
+
+#message {
+    font-size: 0.9rem;
+    color: #060661;
+    font-weight: 600;
+    
+}
+
+.buttons {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+#btn-encriptar, #btn-desencriptar, #btn-copy {
+    font-size: 1rem;
+    font-weight: 600;
+    width: 50%;
+    text-align: center;
+    border-radius: 12px;
+
+
+}
+
+#btn-encriptar, #btn-copy {
+    background-color: #0A3871;
+    color: #D8DFE8;
+    border-color: lightskyblue;
+    border-width: 3px;
+}
+
+#btn-desencriptar {
+    background-color: #D8DFE8;
+    color: #0A3871;
+    border-color: lightskyblue;
+}
+
+#btn-encriptar:hover, #btn-desencriptar:hover, #btn-copy:hover {
+    cursor: pointer;
+    border-color: cyan;
+}
+
+
+#mensaje {
+    background: white;
+    background-image: url("Munheco.png");
+    background-repeat: no-repeat;
+    border-radius: 20px;
+    background-position: center;
+    background-size: 80%;
+    padding: 10px;
+
+}
+
+
+
+
+footer {
+
+    text-align: center;
+    font-size: 0.8em;
+    background: linear-gradient(#E5E5E5, #9db4d1 );
+    width: 100%;
+    height: 10vh;
+    padding: 1em;
+    color: #072a55;
+
+}
+#cright {
+    font-size: 80%;
+    vertical-align: top;
+    background-color: transparent;
+}
+
+@media screen and (max-width:680px) {
+    main {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+}
