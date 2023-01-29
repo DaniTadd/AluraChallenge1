@@ -14,8 +14,8 @@ function btnEncriptar() {
     mensaje.style.backgroundImage = "none";
     if (mensaje.value == "") {
         mensaje.value = "No se ha encontrado mensaje para encriptar, ingrese el texto y vuelva a intentar.";
-
     }
+    document.getElementById("mensaje").focus();
 }
 
 function encriptar(textoEncriptado) {
@@ -39,6 +39,7 @@ function btndesencriptar() {
     if (mensaje.value == "") {
         mensaje.value = "No se ha encontrado mensaje para desencriptar, ingrese el texto y vuelva a intentar"
     }
+    document.getElementById("mensaje").focus();
 }
 
 function desencriptar(mensajeDesencriptado) {
@@ -62,4 +63,5 @@ function copiar() {
     alert("¡Texto copiado!");
     mensaje.value = "";
     mensaje.style.backgroundImage = "url('Munheco.png')"
+    document.getElementById("textArea").focus();
 }
