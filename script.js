@@ -59,9 +59,14 @@ function desencriptar(mensajeDesencriptado) {
 
 function copiar() {
     var copyText = document.getElementById("mensaje");
-    navigator.clipboard.writeText(copyText.value);
-    alert("¡Texto copiado!");
-    mensaje.value = "";
-    mensaje.style.backgroundImage = "url('Munheco.png')"
-    document.getElementById("textArea").focus();
+    copyText.select();
+    copyText.setSelectionRange(0, 99999);
+    navigator.clipboard
+      .writeText(copyText.value)
+      .then(() => {
+        alert("successfully copied");
+      })
+      .catch(() => {
+        alert("something went wrong");
+      });
 }
