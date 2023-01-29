@@ -64,9 +64,9 @@ function copiar() {
     navigator.clipboard
       .writeText(copyText.value)
       .then(() => {
-        alert("successfully copied");
+        alert("Texto copiado.");
       })
       .catch(() => {
-        alert("something went wrong");
+        alert("Lo sentimos, no se ha podido copiar.");
       });
 }
