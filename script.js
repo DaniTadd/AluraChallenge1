@@ -56,7 +56,7 @@ function btnEncriptar() {
     });
     document.getElementById("instruction").classList.remove("incorrect-message");
     document.getElementById("instruction").classList.remove("correct-message");
-    document.getElementById("mensaje").focus();
+    document.getElementById("btn-copy").focus();
     }
 }
 
@@ -98,7 +98,7 @@ function btndesencriptar() {
     });
     document.getElementById("instruction").classList.remove("incorrect-message");
     document.getElementById("instruction").classList.remove("correct-message");
-    document.getElementById("mensaje").focus();
+    document.getElementById("btn-copy").focus();
     }
 }
 
