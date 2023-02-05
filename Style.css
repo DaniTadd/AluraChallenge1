@@ -5,7 +5,6 @@
     line-height: 2em;
     letter-spacing: 0em;
     text-align: left;
-    background-color: #E5E5E5;
     box-sizing: border-box;
  
 }
@@ -13,6 +12,7 @@
 html, body {
     height: 100vh;
     overflow: auto;
+    background-color: #E5E5E5;
 }
 
 header {
@@ -36,6 +36,7 @@ section {
     overflow: auto;
     width: auto;
     min-height: 70vh;
+    background-color: #E5E5E5;
 }
 
 textarea {
@@ -43,6 +44,10 @@ textarea {
     min-height: 70%;
     font-weight: 600;
     color: #060661;
+}
+
+#my-text {
+    background-color: #E5E5E5;
 }
 
 textarea:focus {
@@ -124,6 +129,16 @@ footer {
     font-size: 80%;
     vertical-align: top;
     background-color: transparent;
+}
+
+/*=============================== Event listener classes=====================================*/
+
+.incorrect-message {
+    color: #ef5350;
+}
+
+.correct-message {
+    color: green;
 }
 
 @media screen and (max-width:680px) {

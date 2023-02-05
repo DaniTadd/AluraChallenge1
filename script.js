@@ -1,25 +1,67 @@
 const textArea = document.querySelector("#my-text");
 const mensaje = document.querySelector("#mensaje");
+const phraseStructure = /[A-Z]/;
+const validar = () => {
+    
+    if (phraseStructure.test(textArea.value)) {
+       document.getElementById("instruction").classList.add("incorrect-message");
+       document.getElementById("instruction").classList.remove("correct-message");
+    } else {
+       document.getElementById("instruction").classList.remove("incorrect-message");
+       document.getElementById("instruction").classList.add("correct-message");
+    };
 
-/* La letra "e" es convertida para "enter"
+    if (textArea.value == "") {
+        document.getElementById("instruction").classList.remove("incorrect-message");
+        document.getElementById("instruction").classList.remove("correct-message");
+     }
+};
+/*
+La letra "é" es convertida para "3nt3r"
+La letra "e" es convertida para "enter"
+La letra "í" es convertida para "1m3s"
 La letra "i" es convertida para "imes"
+La letra "á" es convertida para "41"
 La letra "a" es convertida para "ai"
+La letra "ó" es convertida para "0b3r"
 La letra "o" es convertida para "ober"
+La letra "ú" es convertida para "-f4t"
+La letra "ü" es convertida para "%f4t"
 La letra "u" es convertida para "ufat" */
 
+textArea.addEventListener("keyup", validar);
+
 function btnEncriptar() {
+    if (textArea.value == "") {
+        swal({
+            title: "Oops...",
+            text: "No hay texto para encriptar, intente nuevamente.",
+            icon: "warning", 
+        });
+    } else if (phraseStructure.test(textArea.value)) {
+        swal({
+            title: "Oops...",
+            text: "El texto ingresado contiene mayúsculas, cámbielas y vuelva a intentar.",
+            icon: "warning", 
+        });
+    } else {
     const mensajeEncriptado = encriptar(textArea.value);
-    mensaje.value = mensajeEncriptado;
     textArea.value = "";
     mensaje.style.backgroundImage = "none";
-    if (mensaje.value == "") {
-        mensaje.value = "No se ha encontrado mensaje para encriptar, ingrese el texto y vuelva a intentar.";
-    }
+    mensaje.value = mensajeEncriptado;
+    swal({
+        title: "¡Bravo!",
+        text: "Tu mensaje ahora es secreto.",
+        icon: "success", 
+    });
+    document.getElementById("instruction").classList.remove("incorrect-message");
+    document.getElementById("instruction").classList.remove("correct-message");
     document.getElementById("mensaje").focus();
+    }
 }
 
 function encriptar(textoEncriptado) {
-    let encriptionCode =[["e","enter"], ["i","imes"], ["a","ai"], ["o", "ober"], ["u","ufat"], ];
+    let encriptionCode =[["é","3nt3r"], ["e","enter"], ["í","1m3s"], ["i","imes"], ["á","41"], ["a","ai"], ["ó","0b3r"], ["o", "ober"], ["ú", "-f4t"], ["ü", "%f4t"], ["u","ufat"]];
     textoEncriptado=textoEncriptado.toLowerCase();
 
     for (let i = 0; i<encriptionCode.length; i++) {
@@ -32,18 +74,36 @@ return textoEncriptado;
 }
 
 function btndesencriptar() {
+    if (textArea.value == "") {
+        swal({
+            title: "Oops...",
+            text: "No hay texto para encriptar, intente nuevamente.",
+            icon: "warning", 
+        });
+    } else if (phraseStructure.test(textArea.value)) {
+        swal({
+            title: "Oops...",
+            text: "El texto ingresado contiene mayúsculas, cámbielas y vuelva a intentar.",
+            icon: "warning", 
+        });
+    } else {
     const mensajeDesencriptado = desencriptar(textArea.value);
     mensaje.value = mensajeDesencriptado;
     textArea.value = "";
-    mensaje.style.backgroundImage = "none"
-    if (mensaje.value == "") {
-        mensaje.value = "No se ha encontrado mensaje para desencriptar, ingrese el texto y vuelva a intentar"
-    }
+    mensaje.style.backgroundImage = "none";
+    swal({
+        title: "¡Bravo!",
+        text: "Ya descubriste el secreto.",
+        icon: "success", 
+    });
+    document.getElementById("instruction").classList.remove("incorrect-message");
+    document.getElementById("instruction").classList.remove("correct-message");
     document.getElementById("mensaje").focus();
+    }
 }
 
 function desencriptar(mensajeDesencriptado) {
-    let encriptionCode = [["e","enter"], ["i","imes"], ["a","ai"], ["o", "ober"], ["u","ufat"]];
+    let encriptionCode =[["é","3nt3r"], ["e","enter"], ["í","1m3s"], ["i","imes"], ["á","41"], ["a","ai"], ["ó","0b3r"], ["o", "ober"], ["ú", "-f4t"], ["ü", "%f4t"], ["u","ufat"]];
     mensajeDesencriptado = mensajeDesencriptado.toLowerCase();
 
     for (let i = 0; i<encriptionCode.length; i++) {
@@ -52,7 +112,6 @@ function desencriptar(mensajeDesencriptado) {
         }
     }
     return mensajeDesencriptado;
-
 }
 
 
@@ -64,9 +123,20 @@ function copiar() {
     navigator.clipboard
       .writeText(copyText.value)
       .then(() => {
-        alert("Texto copiado.");
       })
       .catch(() => {
-        alert("Lo sentimos, no se ha podido copiar.");
       });
+      if (copyText.value == "") {
+        swal({
+            title: "Oops...",
+            text: "No hay texto para copiar, intente nuevamente.",
+            icon: "warning", 
+        });
+    } else {
+        swal({
+            title: "¡Bravo!",
+            text: "Ya puedes compartir el mensaje secreto.",
+            icon: "success", 
+        });
+    }
 }
